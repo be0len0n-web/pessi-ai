@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Pessiai — Ask, imagine, create</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/">✦ pessiai</a><a class="quiet-link" href="/ai">Studio</a></header>
+  <main class="hero">
+    <div class="eyebrow">A little space for big ideas</div>
+    <h1>What’s on your <span>mind?</span></h1>
+    <p class="intro">Ask Pessiai a question or describe something you’d like to see drawn.</p>
+    <section class="composer">
+      <div class="tabs">
+        <button class="tab active" data-kind="chat">✧ Ask something</button>
+        <button class="tab" data-kind="drawing">✎ Request a drawing</button>
+      </div>
+      <form id="requestForm">
+        <label class="sr-only" for="prompt">Your prompt</label>
+        <textarea id="prompt" maxlength="2500" placeholder="Type your question or idea here..." required></textarea>
+        <div class="composer-bottom"><span id="hint">Be curious. Be specific. ✨</span><button class="send" type="submit">Send to Pessiai <span>↗</span></button></div>
+      </form>
+    </section>
+    <section id="result" class="result hidden" aria-live="polite"></section>
+    <p class="footnote">After sending, keep your request code so you can check for a reply later.</p>
+  </main>
+  <script src="/app.js"></script>
+</body></html>
