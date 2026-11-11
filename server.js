@@ -82,14 +82,31 @@ app.get("/api/requests/:id", (req, res) => {
   res.json({ id: item.id, status: item.status, response: item.response, image: item.image });
 });
 
+
 app.post("/api/admin/login", (req, res) => {
   const password = String(req.body.password || "");
+
   if (password.length > 200 || password !== ADMIN_PASSWORD) {
-    return res.status(401).json({ error: "Incorrect password." });
+    return res.status(401).json({
+      error: "Incorrect password."
+    });
   }
+
   req.session.isAdmin = true;
-  res.json({ ok: true });
+
+  req.session.save((err) => {
+    if (err) {
+      console.error("Session save error:", err);
+
+      return res.status(500).json({
+        error: "Could not save login session."
+      });
+    }
+
+    res.json({ ok: true });
+  });
 });
+
 app.post("/api/admin/logout", requireAdmin, (req, res) => {
   req.session.destroy(() => res.json({ ok: true }));
 });
