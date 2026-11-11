@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pessiai Studio</title><link rel="stylesheet" href="/style.css"></head>
+<body class="studio-body">
+<header class="topbar"><a class="brand" href="/">✦ pessiai</a><span class="quiet-link">Studio access</span></header>
+<main class="studio-wrap">
+  <section id="loginPanel" class="login-card">
+    <div class="eyebrow">Pessiai Studio</div><h1>Welcome <span>back.</span></h1><p class="intro">Enter your studio password to continue.</p>
+    <form id="loginForm"><input id="password" type="password" placeholder="Studio password" autocomplete="current-password" required><button class="send full" type="submit">Enter studio ↗</button></form>
+    <p id="loginError" class="error"></p>
+  </section>
+  <section id="dashboard" class="dashboard hidden">
+    <div class="dash-head"><div><div class="eyebrow">Private workspace</div><h1>Request <span>inbox.</span></h1></div><button id="logout" class="outline">Log out</button></div>
+    <div id="requestList" class="request-list"></div>
+    <section id="editor" class="editor hidden">
+      <div class="editor-title"><div><div class="eyebrow">Selected request</div><h2 id="selectedPrompt"></h2></div><button id="closeEditor" class="icon-btn" aria-label="Close">×</button></div>
+      <label for="response">Write a response</label><textarea id="response" maxlength="5000" placeholder="Type the Pessiai response..."></textarea>
+      <label>Or create a drawing</label>
+      <div class="draw-tools"><label class="color-label">Color <input id="penColor" type="color" value="#222222"></label><label class="color-label">Size <input id="penSize" type="range" min="1" max="24" value="5"></label><button id="clearCanvas" class="outline small">Clear</button></div>
+      <canvas id="drawing" width="900" height="500"></canvas>
+      <div class="editor-actions"><button id="saveReply" class="send">Publish response ↗</button><span id="saveStatus" class="muted"></span></div>
+    </section>
+  </section>
+</main>
+<script src="/admin.js"></script>
+</body></html>
